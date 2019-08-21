@@ -5,13 +5,10 @@
 }
 
 .container2 {
-    /* text-align: right; */
+    text-align: justify;
     clear: right;
 }
 
-footer {
-    clear: both;
-}
 
 .container1 
     input[type=text] {

@@ -45,22 +45,16 @@
 <!-- </div> -->
 
 
-<div class="container2">
-    {{ acknowledgements }}
-  <!-- <div><input type="text" name="authors"></div> -->
+<div class="container2" id="ack">
+{{ acknowledgements }}
 </div>
+{% if acknowledgements|length %}
+<button onclick="copyToClipboard('#ack')"><span id="copyButton">Copy</span></button>
+{% endif %}
 
-
-<footer>
-  <p>Created by João Faria</p>
-</footer>
-
-<!-- <input type="button" id="next" value="Next" /> -->
-
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <script>
 $(document).ready(function() {
-    var max_fields      = 10;
+    var max_fields      = 20;
     var wrapper         = $(".container1");
     var add_button      = $(".add_form_field");
  
@@ -69,21 +63,31 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){
             x++;
-            // $(wrapper).append('<div><input type="text" name="authors"/><a href="#" class="delete">Delete Author</a></div>'); //add input box
             // var div = `<div><input type="text" name="author${x}"/><a href="#" class="delete">Delete Author</a></div>`
             var div = `<div><input type="text" name="author${x}"/><a href="#" class="delete">&#x2718;</a></div>`
             $(wrapper).find('.button').before(div);
         }
-  else
-  {
-  alert('Reached the maximum number of authors')
-  }
+        else{
+            alert('Reached the maximum number of authors')
+        }
     });
  
     $(wrapper).on("click",".delete", function(e){
         e.preventDefault(); $(this).parent('div').remove(); x--;
     })
 });
+</script>
+
+<script>
+function copyToClipboard(element) {
+  var $temp = $("<input>");
+  $("body").append($temp);
+  $temp.val($(element).text()).select();
+  document.execCommand("copy");
+  $temp.remove();
+  var tooltip = document.getElementById("copyButton");
+  tooltip.innerHTML = "Copied!";
+}
 </script>
 
 
