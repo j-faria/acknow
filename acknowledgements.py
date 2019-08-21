@@ -185,9 +185,9 @@ def acknowledgements(authors, noGEANES=False, noEPIC=False, notex=False, width=8
     # final = justy(msg, width, ret=True)
 
     if 'Vardan' in authors:
-        msg += comma_separator(team_akn + Vardan_project) + '.'
+        msg += comma_separator(team_akn + Vardan_project) + '. '
     else:
-        msg += comma_separator(projects) + '.'
+        msg += comma_separator(projects) + '. '
 
     initials = [n[1] for n in list(ThisPaperAcknow.keys())]
     dl57 = {}
