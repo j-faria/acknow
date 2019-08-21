@@ -12,6 +12,7 @@ import pprint
 from collections import OrderedDict
 import argparse
 import textwrap
+from copy import copy
 
 
 name = 'acknowledgements'
@@ -164,11 +165,12 @@ def acknowledgements(authors, noGEANES=False, noEPIC=False, notex=False, width=8
     # print(name)
     # print('='*len(name) + '\n')
 
+    team_akn_copy = team_akn.copy()
     if noGEANES:
-        team_akn.pop('GEANES')
+        team_akn_copy.pop('GEANES')
     if noEPIC:
-        team_akn.pop('EPIC')
-    projects = {**IA_akn, **team_akn}
+        team_akn_copy.pop('EPIC')
+    projects = {**IA_akn, **team_akn_copy}
 
     if notex:
         detex = from_tex
