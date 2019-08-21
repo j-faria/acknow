@@ -1,0 +1,65 @@
+.container1 {
+    height: 500px;
+    float: left;
+    width: 30%;
+}
+
+.container2 {
+    /* text-align: right; */
+    clear: right;
+}
+
+footer {
+    clear: both;
+}
+
+.container1 
+    input[type=text] {
+        padding:2px 0px;
+        margin:2px 2px 2px 0px;
+    }
+
+    input[type=checkbox] {
+        text-align: left;
+        padding:2px 0px;
+        margin:2px 2px 2px 0px;
+    }
+
+    .button, .add_form_field
+    {
+        background-color: #1c97f3;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 10px 0;
+        cursor: pointer;
+        /* border:1px solid #186dad; */
+    }
+
+    .button {
+        background-color: forestgreen;
+        border: 0;
+    }
+
+    input{
+        border: 1px solid #1c97f3;
+        width: 80%;
+        font-size: 14px;
+    }
+    
+    .delete{
+        background-color: #fd1200;
+        border: none;
+        color: white;
+        padding: 5px 5px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }

@@ -1,0 +1,91 @@
+{% extends "template.html" %}
+
+{% block body %}
+
+<!-- 
+<form method="GET">
+  <center>
+    <h2>who's in?</h2>
+    <input name="target" type="text" placeholder="target..." required>
+  </center>
+
+  <section class="columns">
+    <div class="column">
+      <h2>where</h2>
+      <input name="observatory" class="awesomplete" data-list="{{ obs }}" />
+    </div>
+
+    <div class="column">
+      <button class="button" type="submit">Go</button>
+    </div>
+
+    <div class="column">
+      <h2>when</h2>
+      <input name="date" id="date" type="date" placeholder="date..." />
+    </div>
+  </section> 
+</form>
+-->
+
+
+<div class="container1">
+    <form method="POST">
+      <button class="add_form_field">Add another author &nbsp; 
+        <span style="font-size:16px; font-weight:bold;">+ </span>
+      </button>
+      <div><input type="text" name="author1"></div>
+      <button class="button" type="submit" id="doit">Acknowledge us!</button>
+    </form>
+</div>
+
+  <!-- <form method="GET"> -->
+    <!-- <input name="target" type="text" placeholder="target..." required> -->
+    <!-- <button class="button" type="submit">Acknowledge me!</button> -->
+  <!-- </form> -->
+<!-- </div> -->
+
+
+<div class="container2">
+    {{ acknowledgements }}
+  <!-- <div><input type="text" name="authors"></div> -->
+</div>
+
+
+<footer>
+  <p>Created by João Faria</p>
+</footer>
+
+<!-- <input type="button" id="next" value="Next" /> -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script>
+$(document).ready(function() {
+    var max_fields      = 10;
+    var wrapper         = $(".container1");
+    var add_button      = $(".add_form_field");
+ 
+    var x = 1;
+    $(add_button).click(function(e){
+        e.preventDefault();
+        if(x < max_fields){
+            x++;
+            // $(wrapper).append('<div><input type="text" name="authors"/><a href="#" class="delete">Delete Author</a></div>'); //add input box
+            // var div = `<div><input type="text" name="author${x}"/><a href="#" class="delete">Delete Author</a></div>`
+            var div = `<div><input type="text" name="author${x}"/><a href="#" class="delete">&#x2718;</a></div>`
+            $(wrapper).find('.button').before(div);
+        }
+  else
+  {
+  alert('Reached the maximum number of authors')
+  }
+    });
+ 
+    $(wrapper).on("click",".delete", function(e){
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+
+
+
+{% endblock %}
