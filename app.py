@@ -14,11 +14,14 @@ def hello():
 def formpost():
     form = request.form
     authors = list(form.values())
+    authors = [a.strip() for a in authors]
     acknow = acknowledgements(authors, notex=True,
                               noGEANES='geanes' not in form, 
                               noEPIC='epic' not in form)
     return render_template('index.html', acknowledgements=acknow)
 
 if __name__ == '__main__':
-    # app.debug = True
+    app.debug = True
     app.run()
+
+
