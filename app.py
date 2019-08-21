@@ -12,9 +12,11 @@ def hello():
 
 @app.route('/', methods=['POST'])
 def formpost():
-    text = request.form
-    authors = list(text.values())
-    acknow = acknowledgements(authors, notex=True)
+    form = request.form
+    authors = list(form.values())
+    acknow = acknowledgements(authors, notex=True,
+                              noGEANES='geanes' not in form, 
+                              noEPIC='epic' not in form)
     return render_template('index.html', acknowledgements=acknow)
 
 if __name__ == '__main__':
