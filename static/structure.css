@@ -40,6 +40,21 @@ footer a {
 	text-decoration:none;
 }
 
+button
+{
+	background-color: #1c97f3;
+	border: none;
+	color: white;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 10px 0;
+	cursor: pointer;
+	/* border:1px solid #186dad; */
+}
+
 
 @media screen and (max-width: 980px) {
 	.columns .column {
