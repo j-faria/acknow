@@ -126,25 +126,28 @@ Vardan_project = [
 acknow = {
 ('Elisa Delgado Mena', 'E.D.M.', 'Elisa')               : ['IF/00849/2015',],
 ('Gabriella Gilli', 'G.G.', 'Gabriella')                : [],
+('Jorge H. C. Martins', 'J.H.C.M.', 'Jorge')            : ['DL57/2016/CP1364/CT0007'],
+('João Gomes da Silva', 'J.G.dS.', 'GomesDaSilva')      : [],
+('João P. S. Faria', 'J.P.F.', 'Faria')                 : ['DL57/2016/CP1364/CT0005'], #['SFRH/BD/93848/2013',],
+('L. Filipe Pereira', 'F.P.', 'Filipe')                 : ['PD/BD/135227/2017'],
+('Luisa M. Serrano', 'L.M.S.', 'Luisa')                 : ['SFRH/BD/120518/2016'],
 ('Nuno C. Santos', 'N.C.S.', 'Nuno')                    : [], #['IF/00169/2012/CP0150/CT0002',],
 ('Olivier D. S. Demangeon', 'O.D.', 'Olivier')          : ['DL57/2016/CP1364/CT0004'],
 ('Pedro Figueira', 'P.F.', 'PedroF')                    : [], #['IF/01037/2013CP1191/CT0001',],
+('Pedro I. T. K. Sarmento', 'P.I.T.K.S.', 'PedroS')     : [],
 ('Pedro Machado', 'P.M.', 'PedroM')                     : [],
 ('Pedro T. P. Viana', 'P.T.P.V.', 'PedroV')             : [],
-('Sérgio A. G. Sousa', 'S.G.S.', 'Sergio')              : ['IF/00028/2014/CP1215/CT0002',],
-('Susana C. C. Barros', 'S.C.C.B.', 'Susana')           : ['IF/01312/2014/CP1215/CT0004',],
-('Vardan Zh. Adibekyan', 'V.A.', 'Vardan')              : ['IF/00650/2015/CP1273/CT0001'], #['IF/00650/2015',],
-# ('Andressa C. S. Ferreira', 'A.C.S.F.', 'Andressa')     : [],
-# ('Daniel Thaagaard Andreasen', 'D.T.A.', 'Daniel')      : [],
-# ('Jason J. Neal', 'J.J.N.', 'Jason')                    : [],
-('João P. S. Faria', 'J.P.F.', 'Faria')                 : ['DL57/2016/CP1364/CT0005'], #['SFRH/BD/93848/2013',],
-('João Gomes da Silva', 'J.G.dS.', 'GomesDaSilva')      : [],
-('Jorge H. C. Martins', 'J.H.C.M.', 'Jorge')            : ['DL57/2016/CP1364/CT0007'],
-('Luisa M. Serrano', 'L.M.S.', 'Luisa')                 : ['SFRH/BD/120518/2016'],
-('Pedro I. T. K. Sarmento', 'P.I.T.K.S.', 'PedroS')     : [],
 ('Ruben Gonçalves', 'R.G.', 'Ruben')                    : [],
 ('Saeed Hojjatpanah', 'S.H.', 'Saeed')                  : [],
 ('Solène C. Ulmer-Moll', 'S.C.M.', 'Solene')            : [],
+('Susana C. C. Barros', 'S.C.C.B.', 'Susana')           : ['IF/01312/2014/CP1215/CT0004',],
+('Sérgio A. G. Sousa', 'S.G.S.', 'Sergio')              : ['IF/00028/2014/CP1215/CT0002',],
+('Vardan Zh. Adibekyan', 'V.A.', 'Vardan')              : ['IF/00650/2015/CP1273/CT0001'], #['IF/00650/2015',],
+# 
+# no longer in the team:
+# ('Andressa C. S. Ferreira', 'A.C.S.F.', 'Andressa')     : [],
+# ('Daniel Thaagaard Andreasen', 'D.T.A.', 'Daniel')      : [],
+# ('Jason J. Neal', 'J.J.N.', 'Jason')                    : [],
 }
 
 
@@ -170,6 +173,10 @@ def acknowledgements(authors, noGEANES=False, noEPIC=False, notex=False, width=8
         team_akn_copy.pop('GEANES')
     if noEPIC:
         team_akn_copy.pop('EPIC')
+    
+    # if 'Vardan' in authors:
+        # add Vardan's project
+
     projects = {**IA_akn, **team_akn_copy}
 
     if notex:
@@ -186,10 +193,8 @@ def acknowledgements(authors, noGEANES=False, noEPIC=False, notex=False, width=8
         msg += 'by these grants: '
     # final = justy(msg, width, ret=True)
 
-    if 'Vardan' in authors:
-        msg += comma_separator(team_akn + Vardan_project) + '. '
-    else:
-        msg += comma_separator(projects) + '. '
+    
+    msg += comma_separator(projects) + '. '
 
     initials = [n[1] for n in list(ThisPaperAcknow.keys())]
     dl57 = {}
