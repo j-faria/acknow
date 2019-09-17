@@ -54,6 +54,16 @@
 <button onclick="copyToClipboard('#ack')"><span id="copyButton">Copy</span></button>
 {% endif %}
 
+
+
+
+<div class="container3" id="possible">
+  <strong>Possible names:</strong> <br>
+    {{ known_authors | safe }}
+</div>
+    
+
+
 <script>
 $(document).ready(function() {
     var max_fields      = 20;

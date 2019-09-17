@@ -9,6 +9,10 @@
     clear: right;
 }
 
+.container3 {
+    clear: both;
+}
+
 
 .container1 
     input[type=text] {
@@ -19,8 +23,10 @@
     input[type=checkbox] {
         width: 20px;
         text-align: left;
-        padding:2px 0px;
+        text-decoration: none;
+        padding:2px 2px;
         margin:2px 2px 2px 0px;
+        cursor: pointer;
         border: 1px solid #1c97f3;
     }
 
