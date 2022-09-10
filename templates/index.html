@@ -33,10 +33,16 @@
       <button class="add_form_field">Add another author &nbsp; 
         <span style="font-size:16px; font-weight:bold;">+ </span>
       </button>
-      <div><input type="text" name="author1"></div>
+      <!-- <div><input type="text" name="author1"></div> -->
+      {% for field in filled_fields %}
+      <div><input type="text" name="author1" value="{{field}}">
+        <a href="#" class="delete">&#x2718;</a>
+      </div>
+      {% endfor %}
       <button class="button" type="submit" id="doit">Acknowledge us!</button>
       <div><input type="checkbox" name="geanes" value="G.EANES" checked="true">G.EANES</div>
       <div><input type="checkbox" name="epic" value="EPIC" checked="true">EPIC</div>
+      <div><input type="checkbox" name="erc" value="ERC" checked="false" disabled>ERC</div>
     </form>
 </div>
 
@@ -66,7 +72,7 @@
 
 <script>
 $(document).ready(function() {
-    var max_fields      = 20;
+    var max_fields      = 10;
     var wrapper         = $(".container1");
     var add_button      = $(".add_form_field");
  
